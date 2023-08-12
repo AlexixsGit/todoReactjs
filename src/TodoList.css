@@ -1,0 +1,11 @@
+ul {
+    height: 372px;
+    flex-shrink: 0;
+    align-items: center;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}

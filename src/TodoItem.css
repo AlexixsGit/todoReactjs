@@ -1,0 +1,34 @@
+li {
+    width: 500px;
+    height: 124px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: #FAFAFA;
+    box-shadow: 0px 5px 50px 0px rgba(32, 35, 41, 0.15);
+    margin: 20px;
+}
+p {
+    width: auto;
+    color: #1E1E1F;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+/* Example CSS */
+.green-check {
+    color: green;
+    width: 25px;
+    height: auto;
+}
+
+.gray-check {
+    color: gray;
+    cursor: pointer;
+    width: 30px;
+    height: auto;
+}
+
