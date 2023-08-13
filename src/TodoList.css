@@ -1,11 +1,10 @@
-ul {
-    height: 372px;
-    flex-shrink: 0;
-    align-items: center;
-    display: inline-block;
+.todoList {
+    width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
-    list-style: none;
-    display: flex;
+    margin-top: 2em;
+    height: 30rem;
+    overflow: auto;
+    max-height: 38rem;
 }

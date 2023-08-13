@@ -1,35 +1,27 @@
-.centered-input {
+.search-container{
     display: flex;
-    width: 700px;
-    height: 64px;
-    flex-direction: column;
     justify-content: center;
-    flex-shrink: 0;
-    color: #AAA;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 20px;
-}
-h1 {
-    color: #1E1E1F;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    margin-left: 3rem;
+    position: relative;
 }
 
-.totalLabel {
-    color: #1E1E1F;
-    font-family: Montserrat;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.search-container input{
+    width: 60%;
+    height: 2.8em;
+    border-radius: 2em;
+    border: 1px solid #b4b7bb;
+    text-indent: 1em;
+    font-style: italic;
 }
 
+.search-container input:focus{
+    outline-color: #61DAFA;
+}
+
+.search-container .search-icon{
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    top: 0.7em;
+    right: 2.2em;
+}

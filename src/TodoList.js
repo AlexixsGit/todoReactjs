@@ -1,9 +1,7 @@
 import './TodoList.css'
 
-function TodoList({ children }) {
+export function TodoList({ children }) {
   return (
-    <ul className="list-group">{children}</ul>
+    <ul className="todoList">{children}</ul>
   )
 }
-
-export { TodoList };

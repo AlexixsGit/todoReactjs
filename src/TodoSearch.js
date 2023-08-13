@@ -1,13 +1,15 @@
 import React from 'react';
 import './TodoSearch.css'
+import SarchIcon from './images/search-icon.svg'
 
 function TodoSearch() {
   return (
-    <React.Fragment>
-      <div >
-        <input type='text' className='centered-input' placeholder="Cut onion" />
+      <div className='search-container'>
+        <input type='text'
+        placeholder="Cut onion" />
+        <img src={SarchIcon} className='search-icon'/>
       </div>
-    </React.Fragment>
+      
   )
 }
 

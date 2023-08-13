@@ -13,12 +13,12 @@ const defaultTodos = [
   { id: 2, text: "Learn react js", completed: false },
   { id: 3, text: "Study english", completed: false },
   { id: 4, text: "Learn react js", completed: false }
-  
+
 ];
 
 function App() {
   return (
-    <div className="container">
+    <React.Fragment>
       <TodoCounter completed={10} total={20} />
       <TodoSearch />
       <div className="row justify-content-center">
@@ -28,10 +28,10 @@ function App() {
               <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />
             ))}
           </TodoList>
-        </div>  
+        </div>
       </div>
-      <CreateTodoButton/>
-    </div>
+      <CreateTodoButton />
+    </React.Fragment>
   );
 }
 
