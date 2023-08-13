@@ -30,8 +30,13 @@
     cursor: pointer;
 }
 
-.todo-item p {
+.todo-item-p {
     width: 70%;
+}
+
+.todo-item--completed{
+    width: 70%;
+    text-decoration: line-through;
 }
 
 .todo-item .close-item {

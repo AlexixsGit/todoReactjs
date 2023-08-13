@@ -7,7 +7,7 @@ export function TodoItem({ text, completed }) {
     <button
       className={`check ${completed && "check--active"}`}
     ></button>
-    <p>{text}</p>
+    <p className={`todo-item-p ${completed && "todo-item--completed"}`}>{text}</p>
     <button className="close-item"></button>
   </li>
   );

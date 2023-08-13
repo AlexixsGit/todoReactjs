@@ -11,7 +11,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 const defaultTodos = [
   { id: 1, text: "Study english", completed: false },
   { id: 2, text: "Learn react js", completed: false },
-  { id: 3, text: "Study english", completed: false },
+  { id: 3, text: "Study english", completed: true },
   { id: 4, text: "Learn react js", completed: false }
 
 ];
