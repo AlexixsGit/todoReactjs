@@ -1,48 +1,51 @@
-.todoItem {
+.todo-item {
     width: 80%;
-    background-color: #FAFAFA;
-    position: relative;
+    list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    height: 4rem;
     margin: 0.4rem 0;
-    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.TodoItem-p {
-    margin: 24px 0 24px 24px;
-    width: calc(100% -120%);
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 400;
-}
-
-.TodoItem-p--complete {
-    text-decoration: line-through;
-}
-
-.Icon {
+.todo-item .check {
+    background: url('./images/circle.svg') no-repeat;
+    background-size: 90%;
+    background-position: center center;
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 48px;
-    width: 48px;
-    font-size: 24px;
-    font-weight: bold;
 }
 
-.Icon-check--active {
-    color: #4caf50;
+.todo-item .check--active {
+    background: url('./images/circle-check.svg') no-repeat;
+    background-size: 90%;
+    background-position: center center;
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
+    cursor: pointer;
 }
 
-.Icon-delete {
-    position: absolute;
-    top: -24px;
-    right: 0;
+.todo-item p {
+    width: 70%;
 }
 
-.Icon-delete:hover {
-    color: red;
+.todo-item .close-item {
+    background: url('./images/x.svg') no-repeat;
+    background-size: 90%;
+    background-position: center center;
+    width: 1.2em;
+    height: 1.2em;
+    border: none;
+    cursor: pointer;
+}
+
+.todo-item .close-item:hover {
+    background: url('./images/x-red.svg') no-repeat;
+    background-size: 90%;
+    background-position: center center;
 }
