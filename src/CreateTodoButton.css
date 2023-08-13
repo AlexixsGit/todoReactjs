@@ -1,0 +1,7 @@
+.float-button {
+    flex-shrink: 0;
+    cursor: pointer;
+    position: fixed;
+  bottom: 16px;
+  right: 16px;
+}

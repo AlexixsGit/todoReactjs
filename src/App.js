@@ -12,7 +12,8 @@ const defaultTodos = [
   { id: 1, text: "Study english", completed: false },
   { id: 2, text: "Learn react js", completed: false },
   { id: 3, text: "Study english", completed: false },
-  { id: 4, text: "Learn react js", completed: false },
+  { id: 4, text: "Learn react js", completed: false }
+  
 ];
 
 function App() {
@@ -24,12 +25,12 @@ function App() {
         <div className="col-md-8">
           <TodoList>
             {defaultTodos.map(todo => (
-              <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
+              <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />
             ))}
           </TodoList>
         </div>  
       </div>
-      
+      <CreateTodoButton/>
     </div>
   );
 }
