@@ -1,18 +1,11 @@
-h1 {
-    color: #1E1E1F;
-    text-align: center;
-    font-family: Montserrat;
+.todoCounter {
     font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 48px;
     line-height: normal;
 }
 
-.totalLabel {
-    color: #1E1E1F;
-    font-family: Montserrat;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.todoCounter span {
+    font-weight: bold;
 }
