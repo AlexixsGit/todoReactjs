@@ -11,7 +11,7 @@
 }
 
 .todo-item .check {
-    background: url('./images/circle.svg') no-repeat;
+    background: url('./../images/circle.svg') no-repeat;
     background-size: 90%;
     background-position: center center;
     width: 2.5em;
@@ -21,7 +21,7 @@
 }
 
 .todo-item .check--active {
-    background: url('./images/circle-check.svg') no-repeat;
+    background: url('./../images/circle-check.svg') no-repeat;
     background-size: 90%;
     background-position: center center;
     width: 2.5em;
@@ -40,7 +40,7 @@
 }
 
 .todo-item .close-item {
-    background: url('./images/x.svg') no-repeat;
+    background: url('./../images/x.svg') no-repeat;
     background-size: 90%;
     background-position: center center;
     width: 1.2em;
@@ -50,7 +50,7 @@
 }
 
 .todo-item .close-item:hover {
-    background: url('./images/x-red.svg') no-repeat;
+    background: url('./../images/x-red.svg') no-repeat;
     background-size: 90%;
     background-position: center center;
 }
