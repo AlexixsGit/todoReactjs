@@ -1,4 +1,4 @@
-.createTodoButton{
+.createTodoButton {
     background-color: #61DAFA;
     box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
     border: none;
@@ -19,6 +19,6 @@
     transition: .3s ease;
 }
 
-.createTodoButton:hover{
+.createTodoButton:hover {
     transform: rotate(224deg);
 }
