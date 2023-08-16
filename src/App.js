@@ -23,9 +23,6 @@ function App() {
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
-  
-
-
   return (
     <React.Fragment>
       <TodoCounter completed={completedTodos} total={totalTodos} />
@@ -34,7 +31,7 @@ function App() {
       <div className="row justify-content-center">
         <div className="col-md-8">
           <TodoList>
-            {todos.filter(todo=>todo.text.toLocaleLowerCase().includes(searchValue)).map(todo => (
+            {todos.filter(todo=>todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
               <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />
             ))}
           </TodoList>
