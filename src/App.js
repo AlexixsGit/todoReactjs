@@ -12,7 +12,7 @@ const defaultTodos = [
   { id: 1, text: "Study english", completed: false },
   { id: 2, text: "Learn react js", completed: false },
   { id: 3, text: "Study english", completed: true },
-  { id: 4, text: "Learn react js", completed: true  }
+  { id: 4, text: "Learn react js", completed: true }
 
 ];
 
@@ -23,6 +23,14 @@ function App() {
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  const completeTodo = (todoId, completed) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.id == todoId);
+    console.log("Todo index "+todoIndex)
+    newTodos[todoIndex].completed = !completed;
+    setTodos(newTodos);
+  }
+
   return (
     <React.Fragment>
       <TodoCounter completed={completedTodos} total={totalTodos} />
@@ -31,8 +39,10 @@ function App() {
       <div className="row justify-content-center">
         <div className="col-md-8">
           <TodoList>
-            {todos.filter(todo=>todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
-              <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />
+            {todos.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
+              <TodoItem onComplete={()=>{
+                completeTodo(todo.id, todo.completed)
+              }} key={todo.id} text={todo.text} completed={todo.completed} />
             ))}
           </TodoList>
         </div>

@@ -2,9 +2,9 @@ import React from 'react';
 import './TodoItem.css'
 
 
-export function TodoItem({ text, completed }) {
+export function TodoItem({ text, completed, onComplete }) {
   return (<li className="todo-item">
-    <button
+    <button value={completed} onClick={onComplete}
       className={`check ${completed && "check--active"}`}
     ></button>
     <p className={`todo-item-p ${completed && "todo-item--completed"}`}>{text}</p>
