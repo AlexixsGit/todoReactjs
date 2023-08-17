@@ -7,7 +7,7 @@ function TodoCounter({ total, completed, isAllCompleted }) {
     <>
       {isAllCompleted ? (
         <h1 className='todoCounter'>
-         !CONGRATULATIONS!, You have completed all your TODOS
+         <span >!CONGRATULATIONS!,</span> You have completed all your TODOS
         </h1>) : (
         <h1 className='todoCounter'>
           You have completed <span >{completed}</span> of <span >{total}</span> TODOS
