@@ -25,9 +25,15 @@ function App() {
 
   const completeTodo = (todoId, completed) => {
     const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.id == todoId);
-    console.log("Todo index "+todoIndex)
-    newTodos[todoIndex].completed = !completed;
+    const todoIndex = todos.findIndex((todo) => todo.id == todoId);
+    todos[todoIndex].completed = !completed;
+    setTodos(newTodos);
+  }
+
+  const deleteTodo = (todoId) => {
+    const newTodos = [...todos];
+    const todoIndex = todos.findIndex((todo) => todo.id == todoId);
+    newTodos.splice(todoIndex, 1);
     setTodos(newTodos);
   }
 
@@ -40,7 +46,9 @@ function App() {
         <div className="col-md-8">
           <TodoList>
             {todos.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
-              <TodoItem onComplete={()=>{
+              <TodoItem onDelete={()=>{
+                deleteTodo(todo.id);
+              }} onComplete={() => {
                 completeTodo(todo.id, todo.completed)
               }} key={todo.id} text={todo.text} completed={todo.completed} />
             ))}
