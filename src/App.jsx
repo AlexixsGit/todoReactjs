@@ -1,14 +1,8 @@
-import { TodoCounter } from "./TodoCounter/TodoCounter";
-import { TodoSearch } from "./TodoSearch/TodoSearch";
-import { TodoList } from "./TodoList/TodoList";
 
-import { TodoItem } from "./TodoItem/TodoItem";
-import './App.css'
+import './App.css';
 import React from "react";
-import { CreateTodoButton } from "./CreateTodoButton/CreateTodoButton";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-
-
+import { AppUI } from "./AppUI";
 
 function App() {
 
@@ -39,27 +33,10 @@ function App() {
   }
 
   return (
-    <React.Fragment>
-      <TodoCounter completed={completedTodos} total={totalTodos} isAllCompleted={isAllCompleted} />
-      <TodoSearch searchValue={searchValue}
-        setSearchValue={setSearchValue} />
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <TodoList>
-            {todos.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
-              <TodoItem onDelete={() => {
-                deleteTodo(todo.id);
-              }} onComplete={() => {
-                completeTodo(todo.id, todo.completed)
-              }} key={todo.id} text={todo.text} completed={todo.completed}
-              />
-            ))}
-          </TodoList>
-        </div>
-      </div>
-      <CreateTodoButton />
-    </React.Fragment>
-  );
+    <AppUI searchValue={searchValue} setSearchValue={setSearchValue} 
+    isAllCompleted={isAllCompleted} completedTodos={completedTodos} totalTodos={totalTodos}
+    completeTodo={completeTodo} deleteTodo={deleteTodo} todos={todos}/>
+  )
 }
 
 export default App;
