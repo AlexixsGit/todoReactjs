@@ -7,28 +7,35 @@ import './App.css'
 import React from "react";
 import { CreateTodoButton } from "./CreateTodoButton/CreateTodoButton";
 
-
-const defaultTodos = [
-  { id: 1, text: "Study english", completed: false },
-  { id: 2, text: "Learn react js", completed: false },
-  { id: 3, text: "Study english", completed: true },
-  { id: 4, text: "Learn react js", completed: true }
-
-];
-
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+
+  let parseTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parseTodos = [];
+  } else {
+    parseTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parseTodos);
   const [searchValue, setSearchValue] = React.useState('');
   const [isAllCompleted, setAllCompleted] = React.useState(false);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  }
+
   const completeTodo = (todoId, completed) => {
     const newTodos = [...todos];
     const todoIndex = todos.findIndex((todo) => todo.id == todoId);
     todos[todoIndex].completed = !completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
     allCompleted(todos)
   }
 
@@ -36,16 +43,16 @@ function App() {
     const newTodos = [...todos];
     const todoIndex = todos.findIndex((todo) => todo.id == todoId);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
-   const allCompleted=(todos)=>{
+  const allCompleted = (todos) => {
     setAllCompleted(todos.find(todo => !todo.completed) == undefined);
   }
 
   return (
     <React.Fragment>
-      <TodoCounter completed={completedTodos} total={totalTodos} isAllCompleted={isAllCompleted}/>
+      <TodoCounter completed={completedTodos} total={totalTodos} isAllCompleted={isAllCompleted} />
       <TodoSearch searchValue={searchValue}
         setSearchValue={setSearchValue} />
       <div className="row justify-content-center">
@@ -56,7 +63,7 @@ function App() {
                 deleteTodo(todo.id);
               }} onComplete={() => {
                 completeTodo(todo.id, todo.completed)
-              }} key={todo.id} text={todo.text} completed={todo.completed} 
+              }} key={todo.id} text={todo.text} completed={todo.completed}
               />
             ))}
           </TodoList>
