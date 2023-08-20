@@ -22,7 +22,7 @@ export function AppUI({
                     <TodoList>
                         {loading && <p>Cargando...</p>}
                         {error && <p>Lo sentimos, el sistema no esta disponible</p>}
-                        {(!loading && item.length === 0) && <p>¡Agrega tu primer <strong>TODO</strong>!</p>}
+                        {(!loading && !error && item.length === 0) && <p>¡Agrega tu primer <strong>TODO</strong>!</p>}
                         {item.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
                             <TodoItem onDelete={() => {
                                 deleteTodo(todo.id);
