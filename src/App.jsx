@@ -6,36 +6,37 @@ import { AppUI } from "./AppUI";
 
 function App() {
 
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
+  const { item, saveItem, loading, error } = useLocalStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = React.useState('');
   const [isAllCompleted, setAllCompleted] = React.useState(false);
 
-  const completedTodos = todos.filter(todo => !!todo.completed).length;
-  const totalTodos = todos.length;
+  const completedTodos = item.filter(todo => !!todo.completed).length;
+  const totalTodos = item.length;
 
   const completeTodo = (todoId, completed) => {
-    const newTodos = [...todos];
-    const todoIndex = todos.findIndex((todo) => todo.id == todoId);
-    todos[todoIndex].completed = !completed;
-    saveTodos(newTodos);
-    allCompleted(todos)
+    const newTodos = [...item];
+    const todoIndex = item.findIndex((todo) => todo.id === todoId);
+    item[todoIndex].completed = !completed;
+    saveItem(newTodos);
+    allCompleted(item)
   }
 
   const deleteTodo = (todoId) => {
-    const newTodos = [...todos];
-    const todoIndex = todos.findIndex((todo) => todo.id == todoId);
+    const newTodos = [...item];
+    const todoIndex = item.findIndex((todo) => todo.id === todoId);
     newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
+    saveItem(newTodos);
   }
 
-  const allCompleted = (todos) => {
-    setAllCompleted(todos.find(todo => !todo.completed) == undefined);
+  const allCompleted = (item) => {
+    setAllCompleted(item.find(todo => !todo.completed) === undefined);
   }
 
   return (
-    <AppUI searchValue={searchValue} setSearchValue={setSearchValue} 
-    isAllCompleted={isAllCompleted} completedTodos={completedTodos} totalTodos={totalTodos}
-    completeTodo={completeTodo} deleteTodo={deleteTodo} todos={todos}/>
+    <AppUI searchValue={searchValue} setSearchValue={setSearchValue}
+      isAllCompleted={isAllCompleted} completedTodos={completedTodos} totalTodos={totalTodos}
+      completeTodo={completeTodo} deleteTodo={deleteTodo} item={item}
+      loading={loading} error={error} />
   )
 }
 
