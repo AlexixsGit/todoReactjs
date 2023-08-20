@@ -6,7 +6,9 @@ import { TodoItem } from "./TodoItem/TodoItem";
 import './App.css'
 import React from "react";
 import { CreateTodoButton } from "./CreateTodoButton/CreateTodoButton";
-
+import { TodoLoading } from "./TodoLoading/TodoLoading";
+import { TodoError } from "./TodoError/TodoError";
+import { TodoAddMessage } from "./TodoAddMessage/TodoAddMessage";
 
 export function AppUI({
     searchValue, setSearchValue, isAllCompleted, completedTodos,
@@ -20,9 +22,9 @@ export function AppUI({
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <TodoList>
-                        {loading && <p>Cargando...</p>}
-                        {error && <p>Lo sentimos, el sistema no esta disponible</p>}
-                        {(!loading && !error && item.length === 0) && <p>¡Agrega tu primer <strong>TODO</strong>!</p>}
+                        <TodoLoading loading={loading} />
+                        <TodoError error={error} />
+                        <TodoAddMessage loading={loading} error={error} item={item}/>
                         {item.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
                             <TodoItem onDelete={() => {
                                 deleteTodo(todo.id);
