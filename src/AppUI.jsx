@@ -10,6 +10,7 @@ import { TodoLoading } from "./TodoLoading/TodoLoading";
 import { TodoError } from "./TodoError/TodoError";
 import { TodoAddMessage } from "./TodoAddMessage/TodoAddMessage";
 import { TodoContext } from "./TodoContext/TodoContext";
+import { Modal } from "./Modal/Modal";
 
 export function AppUI() {
     const {
@@ -18,7 +19,9 @@ export function AppUI() {
         error,
         searchValue,
         completeTodo,
-        deleteTodo
+        deleteTodo,
+        openModal,
+        setOpenModal
     } = React.useContext(TodoContext);
     return <React.Fragment>
         <div>
@@ -26,7 +29,6 @@ export function AppUI() {
             <TodoSearch />
             <div className="row justify-content-center">
                 <div className="col-md-8">
-
                     <TodoList>
                         <TodoLoading loading={loading} />
                         <TodoError error={error} />
@@ -44,5 +46,11 @@ export function AppUI() {
             </div>
         </div>
         <CreateTodoButton />
+
+        {openModal && (
+            <Modal>
+                Welcome to model
+            </Modal>
+        )}
     </React.Fragment>
 }
