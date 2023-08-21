@@ -5,7 +5,7 @@ import { TodoContext } from "../TodoContext/TodoContext";
 function TodoCounter() {
   return (
     <TodoContext.Consumer>
-      {({ total, completed, isAllCompleted }) => {
+      {({ totalTodos, completedTodos, isAllCompleted }) => {
         console.log(isAllCompleted);
         return (
           <>
@@ -14,7 +14,7 @@ function TodoCounter() {
                 <span >!CONGRATULATIONS!,</span> You have completed all your TODOS
               </h1>) : (
               <h1 className='todoCounter'>
-                You have completed <span >{completed}</span> of <span >{total}</span> TODOS
+                You have completed <span >{completedTodos}</span> of <span >{totalTodos}</span> TODOS
               </h1>)}
           </>
         );
