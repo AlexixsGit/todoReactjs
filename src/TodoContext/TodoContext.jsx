@@ -5,7 +5,6 @@ const TodoContext = React.createContext();
 
 function TodoProvider({ children }) {
 
-
     const { item, saveItem, loading, error } = useLocalStorage('TODOS_V1', [])
     const [searchValue, setSearchValue] = React.useState('');
     const [isAllCompleted, setAllCompleted] = React.useState(false);
@@ -47,7 +46,6 @@ function TodoProvider({ children }) {
         deleteTodo,
         allCompleted
     };
-
 
     return (
         <TodoContext.Provider value={value}>

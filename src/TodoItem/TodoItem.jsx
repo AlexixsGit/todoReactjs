@@ -1,8 +1,8 @@
 import React from 'react';
 import './TodoItem.css'
 
-
 export function TodoItem({ text, completed, onComplete, onDelete }) {
+  
   return (<li className="todo-item">
     <button value={completed} onClick={onComplete}
       className={`check ${completed && "check--active"}`}

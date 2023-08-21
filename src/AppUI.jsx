@@ -12,36 +12,34 @@ import { TodoAddMessage } from "./TodoAddMessage/TodoAddMessage";
 import { TodoContext } from "./TodoContext/TodoContext";
 
 export function AppUI() {
+    const {
+        item,
+        loading,
+        error,
+        searchValue,
+        completeTodo,
+        deleteTodo
+    } = React.useContext(TodoContext);
     return <React.Fragment>
         <div>
             <TodoCounter />
             <TodoSearch />
             <div className="row justify-content-center">
                 <div className="col-md-8">
-                    <TodoContext.Consumer>
-                        {({
-                            item,
-                            loading,
-                            error,
-                            searchValue,
-                            completeTodo,
-                            deleteTodo
-                        }) => (
-                            <TodoList>
-                                <TodoLoading loading={loading} />
-                                <TodoError error={error} />
-                                <TodoAddMessage loading={loading} error={error} item={item} />
-                                {item.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
-                                    <TodoItem onDelete={() => {
-                                        deleteTodo(todo.id);
-                                    }} onComplete={() => {
-                                        completeTodo(todo.id, todo.completed)
-                                    }} key={todo.id} text={todo.text} completed={todo.completed}
-                                    />
-                                ))}
-                            </TodoList>
-                        )}
-                    </TodoContext.Consumer>
+
+                    <TodoList>
+                        <TodoLoading loading={loading} />
+                        <TodoError error={error} />
+                        <TodoAddMessage loading={loading} error={error} item={item} />
+                        {item.filter(todo => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())).map(todo => (
+                            <TodoItem onDelete={() => {
+                                deleteTodo(todo.id);
+                            }} onComplete={() => {
+                                completeTodo(todo.id, todo.completed)
+                            }} key={todo.id} text={todo.text} completed={todo.completed}
+                            />
+                        ))}
+                    </TodoList>
                 </div>
             </div>
         </div>
