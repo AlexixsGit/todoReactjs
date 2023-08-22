@@ -11,6 +11,7 @@ import { TodoError } from "./TodoError/TodoError";
 import { TodoAddMessage } from "./TodoAddMessage/TodoAddMessage";
 import { TodoContext } from "./TodoContext/TodoContext";
 import { Modal } from "./Modal/Modal";
+import { TodoForm } from "./TodoForm/TodoForm";
 
 export function AppUI() {
     const {
@@ -21,7 +22,6 @@ export function AppUI() {
         completeTodo,
         deleteTodo,
         openModal,
-        setOpenModal
     } = React.useContext(TodoContext);
     return <React.Fragment>
         <div>
@@ -49,7 +49,7 @@ export function AppUI() {
 
         {openModal && (
             <Modal>
-                Welcome to model
+                <TodoForm />
             </Modal>
         )}
     </React.Fragment>
