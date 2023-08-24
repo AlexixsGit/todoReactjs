@@ -37,7 +37,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://alexixsgit.github.io/todoReactjs/index.html",
+  "homepage": "https://alexixsgit.github.io/todoReactjs",
   "devDependencies": {
     "gh-pages": "^6.0.0"
   }
