@@ -13,6 +13,20 @@ function TodoProvider({ children }) {
     const completedTodos = item.filter(todo => !!todo.completed).length;
     const totalTodos = item.length;
 
+    const addTodo = (newText) => {
+        const newTodos = [...item];
+        let lastItem = newTodos[newTodos.length - 1];
+        let lastItemId = lastItem ? lastItem.id : 0;
+        
+        console.log(lastItemId);
+        newTodos.push({
+            id: lastItemId+2,
+            text: newText,
+            completed: false
+        })
+        saveItem(newTodos);
+    }
+
     const completeTodo = (todoId, completed) => {
         const newTodos = [...item];
         const todoIndex = item.findIndex((todo) => todo.id === todoId);
@@ -47,7 +61,8 @@ function TodoProvider({ children }) {
         deleteTodo,
         allCompleted,
         openModal,
-        setOpenModal
+        setOpenModal,
+        addTodo
     };
 
     return (

@@ -30,6 +30,7 @@ export function useLocalStorage(itemName, initialValue) {
 
 
   const saveItem = (newItem) => {
+    console.log(newItem);
     localStorage.setItem(itemName, JSON.stringify(newItem));
     setItem(newItem);
   }
